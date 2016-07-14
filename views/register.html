@@ -1,0 +1,96 @@
+<h1>{{'register' | translate}}</h1>
+<uib-alert close="status.show = false" type="{{status.type}}" 
+           ng-show="status.show === true">
+    {{status.messageKey | translate}}
+</uib-alert>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-lg-6">
+        <form name="registerForm" class="form-horizontal">
+            <div class="form-group has-feedback">
+                <label for="email" class="col-sm-4 control-label">
+                    {{'email' | translate}}
+                </label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" placeholder="{{'email' | translate}}"
+                           ng-required="true"
+                           ng-model="newUser.email" />
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"
+                          ng-show="emailAlreadyExists"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="givenname" class="col-sm-4 control-label">
+                    {{'givenname' | translate}}
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" placeholder="{{'givenname' | translate}}"
+                           ng-required="true"
+                           ng-model="newUser.givenname" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="surname" class="col-sm-4 control-label">
+                    {{'surname' | translate}}
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" placeholder="{{'surname' | translate}}"
+                           ng-required="true"
+                           ng-model="newUser.surname" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="street" class="col-sm-4 control-label">
+                    {{'street' | translate}}
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" placeholder="{{'street' | translate}}"
+                           ng-required="true"
+                           ng-model="newUser.street" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="city" class="col-sm-4 control-label">
+                    {{'postCodeCity' | translate}}
+                </label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" placeholder="{{'postCode' | translate}}"
+                           ng-required="true"
+                           ng-model="newUser.postCode" />
+                </div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" placeholder="{{'city' | translate}}"
+                           ng-required="true"
+                           ng-model="newUser.city" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-4 control-label">
+                    {{'password' | translate}}
+                </label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" placeholder="{{'password' | translate}}" 
+                           ng-required="true"
+                           ng-model="newUser.password" />
+                </div>
+            </div>
+            <div class="form-group has-feedback">
+                <label for="passwordConfirm" class="col-sm-4 control-label">
+                    {{'passwordConfirm' | translate}}
+                </label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" placeholder="{{'passwordConfirm' | translate}}" aria-describedby="successStatus"
+                           ng-required="true"
+                           ng-model="newUser.passwordConfirm" />
+                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"
+                          ng-show="passwordsMatch()"></span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary pull-right"
+                    ng-disabled="!canSubmit()"
+                    ng-click="submit()">
+                {{'submitRegistration' | translate}}
+            </button>
+        </form>
+    </div>
+</div>

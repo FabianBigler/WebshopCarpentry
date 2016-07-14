@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-lg-6">
+        <h1>{{'profile' | translate}}</h1>
+        <div class="row">
+            <label for="email" class="col-sm-4">
+                {{'email' | translate}}
+            </label>
+            <div class="col-sm-8">
+                {{user.email}}
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4">
+                {{'givenname' | translate}}
+            </label>
+            <div class="col-sm-8">
+                {{user.givenname}}
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4">
+                {{'surname' | translate}}
+            </label>
+            <div class="col-sm-8">
+                {{user.surname}}
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4">
+                {{'street' | translate}}
+            </label>
+            <div class="col-sm-8">
+                {{user.street}}
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-4">
+                {{'postCodeCity' | translate}}
+            </label>
+            <div class="col-sm-8">
+                {{user.postCode}} {{user.city}}
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xs-12 col-sm-4 col-lg-6">
+        <h1>{{'previousOrders' | translate}}</h1>
+        <div ng-repeat="summaryEntry in summaryEntries">
+            <a href ui-sref="basket({id: summaryEntry.basketHeaderId})">
+                <h4>{{'orderOf' | translate}} {{summaryEntry.orderDate | date:"dd.MM.yyyy HH:mm"}}<h4>
+            </a>
+            <div>
+                {{summaryEntry.lineCount}} {{'linesInOrder' | translate}}
+            </div>
+        </div>
+        <div ng-show="summaryEntries.length == 0">
+            {{'noOrdersJet' | translate}}
+        </div>
+    </div>
+</div>

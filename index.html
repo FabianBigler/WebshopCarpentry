@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="maribelle">
+<head>
+    <title>Maribelle</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=10; IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic" />
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    <link type="text/css" rel="stylesheet" href="styles/app.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-cookies.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/i18n/angular-locale_de-ch.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.2/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.1/angular-translate.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/de.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.0.6/rx.all.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/translations.js"></script>
+    <script type="text/javascript" src="views/product-overview.js"></script>
+    <script type="text/javascript" src="views/product-detail.js"></script>
+    <script type="text/javascript" src="views/register.js"></script>
+    <script type="text/javascript" src="views/login.js"></script>
+    <script type="text/javascript" src="views/user-profile.js"></script>
+    <script type="text/javascript" src="views/basket.js"></script>
+    <script type="text/javascript" src="scripts/routing.js"></script>
+</head>
+
+<body ng-controller="AppViewModel as app">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand page-scroll" ng-href="{{rootUrl}}/#/{{maribelle.product.overviewRoute.url}}">
+                    <img id="logo" src="assets/img/logo.png">
+                </a>
+                <button type="button" class="btn btn-navbar navbar-toggle"
+                        ng-click="navbarCollapsed = !navbarCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-right nav-collapse collapse" 
+                 uib-collapse="navbarCollapsed">
+                <p class="navbar-text"
+                   ng-show="app.userAuthenticated">
+                    {{'SignedInAs' | translate}} {{app.userName}}
+                    (<a href="#" ng-click="app.logout()">{{'logout' | translate}}</a>)
+                </p>
+                <ul class="nav navbar-nav">
+                    <li ui-sref-active="active">
+                        <a href ui-sref="overview">{{'overview' | translate}}</a>
+                    </li>
+                    <li ui-sref-active="active"
+                        ng-show="app.userAuthenticated">
+                        <a href ui-sref="basket({id: null})">{{'basket' | translate}}</a>
+                    </li>
+                    <li ui-sref-active="active"
+                        ng-show="app.userAuthenticated">
+                        <a href ui-sref="user-profile">{{'profile' | translate}}</a>
+                    </li>
+                    <li ui-sref-active="active"
+                        ng-hide="app.userAuthenticated">
+                        <a href ui-sref="user-register">{{'register' | translate}}</a>
+                    </li>
+                    <li ui-sref-active="active"
+                        ng-hide="app.userAuthenticated">
+                        <a href ui-sref="user-login">{{'login' | translate}}</a>
+                    </li>
+                </ul>
+                <div id="langswitch" uib-dropdown>
+                    <button type="button" class="btn btn-primary" 
+                            uib-dropdown-toggle>
+                        {{app.currentLang}} <span class="caret"></span>
+                    </button>
+                    <ul uib-dropdown-menu role="menu">
+                        <li role="menuitem" ng-repeat="language in app.languages">
+                            <a ng-click="app.changeLang(language.code)">{{language.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+        
+    <header>
+    </header>
+    
+    <main ng-cloak>
+        <div class="container">
+            <ui-view />
+        </div>
+    </main>
+    
+    <footer>
+    </footer>
+</body>
+</html>

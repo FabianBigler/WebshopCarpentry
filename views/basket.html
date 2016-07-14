@@ -1,0 +1,60 @@
+<h1>{{'basket' | translate}}</h1>
+<uib-alert close="status.show = false" type="{{status.type}}" 
+           ng-show="status.show === true">
+    {{ status.messageKey | translate}}
+</uib-alert>
+
+<div class="row">
+    <div class="col-sm-6">
+        <h3>{{'deliveryAddress' | translate}}</h3>
+        <p>
+            {{basket.deliveryStreet}} <br />
+            {{basket.deliveryPostCode}} {{basket.deliveryCity}}
+        </p>
+    </div>
+    <div class="col-sm-6">
+        <h3>{{'invoiceAddress' | translate}}</h3>
+        <p>
+            {{basket.invoiceStreet}} <br />
+            {{basket.invoicePostCode}} {{basket.invoiceCity}}
+        </p>
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+        <th>{{'name' | translate}}</th>
+        <th class="text-right">{{'amount' | translate}}</th>
+        <th class="text-right">{{'price' | translate}}</th>    
+        <th class="text-right">{{'total' | translate}}</th>
+        <th width="50px"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="line in basket.lines">
+            <td>{{line.productName}}</td>
+            <td class="text-right">{{line.amount}}</td>
+            <td class="text-right">{{line.productPrice | number:2}}</td>
+            <td class="text-right">{{line.amount * line.productPrice | number:2}}</td>                
+            <td>
+                <button class="btn btn-primary glyphicon glyphicon-remove"  
+                        ng-if="!isReadonly"                 
+                        ng-click="removeBasketLine(line)">                          
+                </button>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3"></td>
+            <td class="text-right"><strong >{{getTotal() | number:2}}</strong></td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+<button type="submit" class="btn btn-primary pull-right"
+        ng-if="!isReadonly"
+        ng-disabled="!canCompleteOrder()"
+        ng-click="completeOrder()">
+    {{'completeOrder' | translate}}
+</button>
