@@ -113,6 +113,25 @@ class ProductRepository extends RepositoryBase {
         
         return $product;
     }
+
+    public function insert($product)
+    {
+        $sql = "INSERT INTO `product`(`id`, `price`, `imgSmallPath`) VALUES (?,?,?)";
+        $this->query($sql, function($stmt, $con) use($product) {
+            $stmt->bind_param('ds', $product->price, $product->imgSmallPath);
+            $stmt->execute();
+            return $con->insert_id;
+        });
+
+         $sql = "INSERT INTO `productText`(`language-code`, `product-id`, `name`, `short-description`, `description`) 
+                 VALUES (?,?,?,?,?)";
+        return $this->query($sql, function($stmt, $con) use($product) {
+            $stmt->bind_param('sisss', $product->languageCode, $product->productId, $product->name, $product->shortDescription, $product->description);
+            $stmt->execute();
+            return $con->insert_id;
+        });
+
+    }
 }
 
 class BasketRepository extends RepositoryBase {        

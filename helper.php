@@ -4,7 +4,7 @@ function getDbConnection() {
     $servername = 'fabigler.mysql.db.internal';
     $username = 'fabigler_fabian';
     $password = 'yeUt39N2';
-    $dbname = 'fabigler_maribelle';
+    $dbname = 'fabigler_bmoebel';
     
     $con = new mysqli($servername, $username, $password, $dbname);
     

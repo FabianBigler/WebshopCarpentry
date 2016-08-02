@@ -43,7 +43,8 @@
                 'previousOrders': 'Bisherige Bestellungen',
                 'noOrdersJet': 'Bisher keine Bestellungen gesendet.',
                 'orderOf': 'Bestellung vom',
-                'linesInOrder': 'Produkt(e) bestellt'
+                'linesInOrder': 'Produkt(e) bestellt',
+                'product-management': 'Produkte verwalten'
             });
             
             $translateProvider.translations('EN', {
@@ -85,7 +86,8 @@
                 'previousOrders': 'Previous orders',
                 'noOrdersJet': 'So far no orders sent.',
                 'orderOf': 'Order from',
-                'linesInOrder': 'ordered product(s)'
+                'linesInOrder': 'ordered product(s)',
+                'product-management': 'Product Management'
             });
 
             $translateProvider.translations('FR', {
@@ -127,7 +129,8 @@
                 'previousOrders': 'Commandes précédentes',
                 'noOrdersJet': 'Jusqu\'ici envoyé pas des ordres.',
                 'orderOf': 'Commande du',
-                'linesInOrder': 'produit(s) commandés'
+                'linesInOrder': 'produit(s) commandés',
+                'product-management': 'Gestion des produits'
             });
 
             $translateProvider.preferredLanguage('DE');

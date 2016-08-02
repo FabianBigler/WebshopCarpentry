@@ -86,6 +86,14 @@ class ProductController extends ControllerBase {
             setJsonResponse($product);
         }
     }
+
+    public function insert($request)
+    {
+        $product = new Product();        
+        $product->applyValuesFromArray($request);
+        
+        $this->productRepository->insert($product);        
+    }
 }
 
 class BasketController extends ControllerBase {    

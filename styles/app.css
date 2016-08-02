@@ -61,12 +61,12 @@ aside {
 
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus:hover {
-    color: #f05f40;
+    color: #EDA92C;
 }
 
 .navbar-default .nav > li.active > a,
 .navbar-default .nav > li.active > a:focus {
-    color: #f05f40!important;
+    color: #EDA92C!important;
     background-color: transparent;
 }
 
@@ -89,13 +89,14 @@ aside {
 
 @media(min-width:0px) {
     .navbar-default {
-        border-color: #000;
+        border-color: #AA1;
     }
     
     .navbar-default #langswitch {
         float: left;
         margin-bottom: 6px;
     }
+    
 }
 
 @media(min-width:768px) {
@@ -118,12 +119,12 @@ header {
     height: 300px;
     text-align: center;
     color: #fff;
-    background-image: url(../assets/img/header.jpg);
+    /*background-image: url(../assets/img/header.jpg);
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
-    -o-background-size: cover;
+    -o-background-size: cover;*/
 }
 
 main {
@@ -132,7 +133,7 @@ main {
 
 @media(min-width:768px) {
     header {
-        height: 200px;
+        /*height: 200px;*/
     }
 }
 
@@ -254,13 +255,13 @@ fieldset[disabled] .btn-default.active {
 }
 
 .text-primary {
-    color: #f05f40;
+    color: #EDA92C;
 }
 
 .btn-primary {
-    border-color: #f05f40;
+    border-color: #EDA92C;
     color: #fff;
-    background-color: #f05f40;
+    background-color: #EDA92C;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -272,9 +273,9 @@ fieldset[disabled] .btn-default.active {
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-    border-color: #ed431f;
+    border-color: #EDA92C;
     color: #fff;
-    background-color: #ee4b28;
+    background-color: #EDA92C;
 }
 
 .btn-primary:active,
@@ -301,8 +302,8 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    border-color: #f05f40;
-    background-color: #f05f40;
+    border-color: #EDCC8E;
+    background-color: #EDCC8E;
 }
 
 .row.no-gutter {

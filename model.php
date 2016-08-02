@@ -13,6 +13,18 @@ class Product extends EntityBase {
     public $description;
     public $shortDescription;
     public $ingredients;
+
+    //only relevant for uploading items
+    public $languageCode;
+
+    public function applyValuesFromArray($newValues) {
+        $this->name = $newValues["name"];
+        $this->price = $newValues["price"];
+        $this->imgSmallPath = $newValues["imgSmallPath"];
+        $this->languageCode =  $newValues["languageCode"];
+        $this->description = $newValues["description"];
+        $this->shortDescription = $newValues["shortDescription"];                
+    }
 }
 
 class Ingredient extends EntityBase {

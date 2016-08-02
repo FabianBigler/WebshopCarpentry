@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="maribelle">
 <head>
-    <title>Maribelle</title>
+    <title>b-moebel Shop</title>
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=10; IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
@@ -25,6 +25,7 @@
     <script type="text/javascript" src="views/product-overview.js"></script>
     <script type="text/javascript" src="views/product-detail.js"></script>
     <script type="text/javascript" src="views/register.js"></script>
+    <script type="text/javascript" src="views/product-management.js"></script>
     <script type="text/javascript" src="views/login.js"></script>
     <script type="text/javascript" src="views/user-profile.js"></script>
     <script type="text/javascript" src="views/basket.js"></script>
@@ -36,7 +37,7 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand page-scroll" ng-href="{{rootUrl}}/#/{{maribelle.product.overviewRoute.url}}">
-                    <img id="logo" src="assets/img/logo.png">
+                    <img src="assets/img/logo.jpg">
                 </a>
                 <button type="button" class="btn btn-navbar navbar-toggle"
                         ng-click="navbarCollapsed = !navbarCollapsed">
@@ -68,6 +69,10 @@
                     <li ui-sref-active="active"
                         ng-hide="app.userAuthenticated">
                         <a href ui-sref="user-register">{{'register' | translate}}</a>
+                    </li>
+                    <li ui-sref-active="active"
+                        ng-show="app.isSuperUser">
+                        <a href ui-sref="product-management">{{'product-management' | translate}}</a>
                     </li>
                     <li ui-sref-active="active"
                         ng-hide="app.userAuthenticated">

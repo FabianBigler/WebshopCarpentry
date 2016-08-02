@@ -11,6 +11,7 @@ var maribelle;
             function(user) { 
                 self.userName = user.givenname + ' ' + user.surname;
                 self.userAuthenticated = userService.isAuthenticated();
+                self.isSuperUser = userService.isAuthenticated && (user.role == 1); // && (user.role == 2);
             }
         );
         
