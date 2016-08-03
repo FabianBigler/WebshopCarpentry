@@ -13,7 +13,8 @@
                 .state(maribelle.user.registerRoute)
                 .state(maribelle.user.loginRoute)
                 .state(maribelle.user.profileRoute)
-                .state(maribelle.basket.basketRoute);
+                .state(maribelle.basket.basketRoute)
+                .state(maribelle.product.managementRoute);
         });
 
 })(maribelle.routing || (maribelle.routing = {}));

@@ -68,7 +68,8 @@ class ProductController extends ControllerBase {
         parent::__construct("product");
         $this->productRepository = $productRepository;
         $this->registerAction("getAll", function() { $this->getAll(); });
-        $this->registerAction("get", function() { $this->get(intval(getStringFromUrl("productId"))); });
+        $this->registerAction("get", function() { $this->get(intval(getStringFromUrl("productId"))); });        
+        $this->registerAction("insert", function() { $this->insert(getJsonInput()); });
     }
     
     public function getAll() {

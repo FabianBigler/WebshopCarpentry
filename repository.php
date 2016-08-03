@@ -115,22 +115,39 @@ class ProductRepository extends RepositoryBase {
     }
 
     public function insert($product)
-    {
-        $sql = "INSERT INTO `product`(`id`, `price`, `imgSmallPath`) VALUES (?,?,?)";
-        $this->query($sql, function($stmt, $con) use($product) {
+    {        
+        $sql = "INSERT INTO `product`(`price`, `imgSmallPath`) VALUES (?,?)";
+        //$this->query($sql, function($stmt, $con) use($product) {
+        //    $stmt->bind_param('ds', $product->price, $product->imgSmallPath);
+        //    $stmt->execute();
+        //    return $con->insert_id;
+        //});
+        $product->productId = $this->query($sql, function($stmt, $con) use($product) {
             $stmt->bind_param('ds', $product->price, $product->imgSmallPath);
             $stmt->execute();
             return $con->insert_id;
-        });
-
-         $sql = "INSERT INTO `productText`(`language-code`, `product-id`, `name`, `short-description`, `description`) 
+        });                            
+                
+        $sql = "INSERT INTO `productText`(`language-code`, `product-id`, `name`, `short-description`, `description`) 
                  VALUES (?,?,?,?,?)";
-        return $this->query($sql, function($stmt, $con) use($product) {
-            $stmt->bind_param('sisss', $product->languageCode, $product->productId, $product->name, $product->shortDescription, $product->description);
+        $languageCode = 'DE';
+        $this->query($sql, function($stmt2, $con) use($product, $languageCode) {
+            $stmt2->bind_param('sisss', $languageCode, $product->productId, $product->name, $product->shortDescription, $product->description);
+            $stmt2->execute();
+            return $con->insert_id;
+        });
+        $languageCode = 'FR';
+         $this->query($sql, function($stmt, $con) use($product, $languageCode) {
+            $stmt->bind_param('sisss', $languageCode, $product->productId, $product->nameFR, $product->shortDescriptionFR, $product->descriptionFR);
             $stmt->execute();
             return $con->insert_id;
         });
-
+        $languageCode = 'EN';
+        $this->query($sql, function($stmt, $con) use($product, $languageCode) {
+            $stmt->bind_param('sisss', $languageCode, $product->productId, $product->nameEN, $product->shortDescriptionEN, $product->descriptionEN);
+            $stmt->execute();
+            return $con->insert_id;
+        });
     }
 }
 

@@ -44,7 +44,12 @@
                 'noOrdersJet': 'Bisher keine Bestellungen gesendet.',
                 'orderOf': 'Bestellung vom',
                 'linesInOrder': 'Produkt(e) bestellt',
-                'product-management': 'Produkte verwalten'
+                'product-management': 'Produkte verwalten',
+                'image': 'Bild',
+                'description': 'Beschreibung',
+                'shortDescription': 'Kurzbeschreibung',
+                'insertProduct': 'Produkt hinzufügen',
+                'productedAddedSuccessful': 'Produkt erfolgreich hinzugefügt'
             });
             
             $translateProvider.translations('EN', {
@@ -87,7 +92,12 @@
                 'noOrdersJet': 'So far no orders sent.',
                 'orderOf': 'Order from',
                 'linesInOrder': 'ordered product(s)',
-                'product-management': 'Product Management'
+                'product-management': 'Product Management',
+                'image': 'Image',
+                'description': 'Description',
+                'shortDescription': 'Short Description',
+                'insertProduct': 'Insert Product',
+                'productedAddedSuccessful': 'Product added successfully'
             });
 
             $translateProvider.translations('FR', {
@@ -130,7 +140,12 @@
                 'noOrdersJet': 'Jusqu\'ici envoyé pas des ordres.',
                 'orderOf': 'Commande du',
                 'linesInOrder': 'produit(s) commandés',
-                'product-management': 'Gestion des produits'
+                'product-management': 'Gestion des produits',
+                'image': 'Image',
+                'description': 'Description',
+                'shortDescription': 'Court Description',
+                'insertProduct': 'Ajouter Produit',
+                'productedAddedSuccessful': 'Ajouté le prouduit'
             });
 
             $translateProvider.preferredLanguage('DE');
