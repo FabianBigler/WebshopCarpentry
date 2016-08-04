@@ -1,0 +1,135 @@
+<h1>{{'product-management' | translate}}</h1>
+<uib-alert close="status.show = false" type="{{status.type}}" 
+           ng-show="status.show === true">
+    {{status.messageKey | translate}}
+</uib-alert>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-lg-6">
+        <form name="productManagementForm" class="form-horizontal">
+            <div class="form-group">
+                <h3>{{'DE' | translate}}</h2>
+                <div class="form-group">
+                    <label for="name" class="col-sm-4 control-label">
+                        {{'name' | translate}}
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="{{'name' | translate}}"
+                            ng-required="true"
+                            ng-model="newProduct.name" />                    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="col-sm-4 control-label">
+                        {{'description' | translate}}
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="{{'description' | translate}}"
+                            ng-required="true"
+                            ng-model="newProduct.description" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shortDescription" class="col-sm-4 control-label">
+                        {{'shortDescription' | translate}}
+                    </label>                
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="{{'shortDescription' | translate}}"
+                            ng-required="true"
+                            ng-model="newProduct.shortDescription" />
+                    </div>
+                </div>
+            </div>  
+
+            <div class="form-group">
+                <h3>{{'FR' | translate}}</h2>
+                <div class="form-group">
+                    <label for="name" class="col-sm-4 control-label">
+                        {{'name' | translate}}
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="{{'name' | translate}}"                            
+                            ng-model="newProduct.nameFR" />                    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="col-sm-4 control-label">
+                        {{'description' | translate}}
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="{{'description' | translate}}"                            
+                            ng-model="newProduct.descriptionFR" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shortDescription" class="col-sm-4 control-label">
+                        {{'shortDescription' | translate}}
+                    </label>                
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="{{'shortDescription' | translate}}"                            
+                            ng-model="newProduct.shortDescriptionFR" />
+                    </div>
+                </div>
+            </div>  
+
+            <div class="form-group">
+                <h3>{{'EN' | translate}}</h2>
+                <div class="form-group">
+                    <label for="name" class="col-sm-4 control-label">
+                        {{'name' | translate}}
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="{{'name' | translate}}"                            
+                            ng-model="newProduct.nameEN" />                    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="col-sm-4 control-label">
+                        {{'description' | translate}}
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="{{'description' | translate}}"                            
+                            ng-model="newProduct.descriptionEN" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shortDescription" class="col-sm-4 control-label">
+                        {{'shortDescription' | translate}}
+                    </label>                
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="{{'shortDescription' | translate}}"                            
+                            ng-model="newProduct.shortDescriptionEN" />
+                    </div>
+                </div>
+            </div>  
+
+
+            <div class="form-group">
+                <label for="price" class="col-sm-4 control-label">
+                    {{'price' | translate}}
+                </label>
+                <div class="col-sm-8">
+                    <input type="number" class="form-control" placeholder="{{'price' | translate}}"
+                           ng-required="true"
+                           ng-model="newProduct.price" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="imgSmallPath" class="col-sm-4 control-label">
+                    {{'image' | translate}}
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" placeholder="{{'image' | translate}}"
+                           ng-required="true"
+                           ng-model="newProduct.imgSmallPath" />
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary pull-right"
+                    ng-disabled="!canSubmit()"
+                    ng-click="submit()">
+                {{'insertProduct' | translate}}
+            </button>
+        </form>
+    </div>    
+</div>
