@@ -23,9 +23,11 @@ class Product extends EntityBase {
     public $descriptionEN;
     public $shortDescriptionEN;
 
+    public $imageData;
+
     public function applyValuesFromArray($newValues) {        
         $this->price = $newValues["price"];
-        $this->imgSmallPath = $newValues["imgSmallPath"];        
+        //$this->imgSmallPath = $newValues["imgSmallPath"];        
         $this->name = $newValues["name"];
         $this->description = $newValues["description"];
         $this->shortDescription = $newValues["shortDescription"];        
@@ -37,6 +39,12 @@ class Product extends EntityBase {
         $this->nameEN = $newValues["nameEN"];
         $this->descriptionEN = $newValues["descriptionEN"];
         $this->shortDescriptionEN = $newValues["shortDescriptionEN"];
+        $this->imageData = $newValues["imageData"];
+        $this->imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $this->imageData));        
+        $imgPath = 'assets/img/products/' . $this->name . '.png';                
+        file_put_contents($imgPath, $this->imageData);
+        $this->imgSmallPath = $imgPath; 
+        $this->imageData = NULL;                              
     }
 }
 

@@ -89,7 +89,7 @@ class ProductController extends ControllerBase {
     }
 
     public function insert($request)
-    {
+    {        
         $product = new Product();        
         $product->applyValuesFromArray($request);
         

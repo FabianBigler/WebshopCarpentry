@@ -5,6 +5,9 @@
     function ProductManagementViewModel($scope, $http, rootUrl, debounce) {
         $scope.newProduct = {};
         $scope.status = {};        
+        $scope.myImage='';
+        $scope.myCroppedImage='';
+
                                
         $scope.canSubmit = function() {
             return $scope.productManagementForm.$dirty 
@@ -12,9 +15,11 @@
         };
         
         $scope.submit = function() {
-            insertItem($scope.newProduct).then(function(res) {
+            $scope.newProduct.imageData = $scope.myCroppedImage;
+            insertItem($scope.newProduct).then(function(res) {                
                 $scope.status = { type: 'success', messageKey: 'productedAddedSuccessful', show: true };
                 $scope.newProduct = {};
+                $scope.myCroppedImage = '';
             });
         };
         
@@ -24,7 +29,20 @@
                 method: 'POST',
                 data: newProduct
             });
-        }               
+        }       
+
+        var handleFileSelect=function(evt) {
+        var file=evt.currentTarget.files[0];
+        var reader = new FileReader();
+        reader.onload = function (evt) {
+            $scope.$apply(function($scope){
+            $scope.myImage=evt.target.result;
+            });
+        };
+        reader.readAsDataURL(file);
+        };        
+
+        angular.element(document.querySelector('#fileInput')).on('change',handleFileSelect);
     }
 
     product.managementRoute = {
